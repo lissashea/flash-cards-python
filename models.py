@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase('flashcards.db')
+db = PostgresqlDatabase('flash_cards', user='lissa', password='123', host='', port='3000')
 
 class FlashCard(Model):
     front = CharField()

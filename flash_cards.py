@@ -2,7 +2,17 @@ import argparse
 import random
 from models import *
 
-def create_card(front,back):
+def create_capital_cards():
+    capitals = [
+        {"front": "France", "back": "Paris"},
+        {"front": "Germany", "back": "Berlin"},
+        {"front": "Italy", "back": "Rome"},
+    ]
+
+    for capital in capitals:
+        create_card(capital["front"], capital["back"])
+
+def create_card(front, back):
     card = FlashCard(front=front, back=back)
     card.save()
     print("Flashcard created successfully")
@@ -33,11 +43,12 @@ def parse_arguments():
     create_parser.add_argument("front", help="Front side of the flash card")
     create_parser.add_argument("back", help="Back side of the flash card")
 
+    create_capitals_parser = subparsers.add_parser("create_capitals", help="Create flash cards for international capitals")
+
     review_parser = subparsers.add_parser("review", help="Set up a training session and review flash cards")
     review_parser.add_argument("num_cards", type=int, help="Number of flash cards to review")
 
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     create_tables()
@@ -46,6 +57,8 @@ if __name__ == "__main__":
 
     if args.command == "create":
         create_card(args.front, args.back)
+    elif args.command == "create_capitals":
+        create_capital_cards()
     elif args.command == "review":
         review_cards(args.num_cards)
     else:
