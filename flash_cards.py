@@ -8,6 +8,18 @@ def create_capital_cards():
         {"front": "France", "back": "Paris"},
         {"front": "Germany", "back": "Berlin"},
         {"front": "Italy", "back": "Rome"},
+        {"front": "United Kingdom", "back": "London"},
+        {"front": "Spain", "back": "Madrid"},
+        {"front": "Russia", "back": "Moscow"},
+        {"front": "Canada", "back": "Ottawa"},
+        {"front": "United States", "back": "Washington, D.C."},
+        {"front": "Australia", "back": "Canberra"},
+        {"front": "China", "back": "Beijing"},
+        {"front": "India", "back": "New Delhi"},
+        {"front": "Brazil", "back": "Brasília"},
+        {"front": "South Africa", "back": "Pretoria"},
+        {"front": "Mexico", "back": "Mexico City"},
+        {"front": "Japan", "back": "Tokyo"}
     ]
 
     for capital in capitals:
