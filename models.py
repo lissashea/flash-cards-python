@@ -1,6 +1,11 @@
 from peewee import *
 
-db = PostgresqlDatabase('flash_cards', user='lissa', password='123', host='', port='3000')
+# Modify the connection parameters to match your PostgreSQL setup
+db = PostgresqlDatabase('flash_cards', 
+                        user='lissa', 
+                        password='123',
+                        host='localhost', 
+                        port=5432)
 
 class FlashCard(Model):
     front = CharField()
@@ -12,5 +17,12 @@ class FlashCard(Model):
         database = db
 
 def create_tables():
-    with db: 
+    with db:
         db.create_tables([FlashCard])
+
+# Add this code to create the database if it doesn't exist
+if not db.connect():
+    db.create_database('flash_cards')
+
+# Call the create_tables function to create the necessary tables
+create_tables()

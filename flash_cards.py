@@ -2,6 +2,7 @@ import argparse
 import random
 from models import *
 
+
 def create_capital_cards():
     capitals = [
         {"front": "France", "back": "Paris"},
